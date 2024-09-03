@@ -1,4 +1,4 @@
-# BIPHackYourCoffeemaschine
+# BIPHackYourCoffeemaschine - SaveData.py
 Hack Your Coffeemaschine
 # Data Logging with MQTT - README
 ## Overview
@@ -48,7 +48,7 @@ Connect the Nodes:
 Connect the inject nodes to the MQTT output node.
 Configure the MQTT topic in the output node to match the self.TOPIC_CONTROL in your script (bipfinnland/monitoring11/control).
 Deploy and Test:
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Deploy the flow in Node-RED.
 Use the inject nodes to send start and stop commands to your MQTT broker, and observe how the data logging responds.
 Conclusion
