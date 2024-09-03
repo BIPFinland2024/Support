@@ -42,13 +42,11 @@ To manage the recording process, you can use Node-RED, a flow-based development 
 ## Create a Flow:
 
 Set up an MQTT output node in Node-RED and configure it to connect to your MQTT broker.
-Create inject nodes to send JSON payloads with "control": "Start" and "control": "End" messages.
+Create inject nodes (or Buttons) to send JSON payloads with {"control": "Start"} and {"control": "End"} messages.
 Connect the Nodes:
+Connect the inject or button to the mqtt output node. Configure the mqtt topic in the output node to match the topic defined on your Energy-Monitoringbox.
+Deploy and Test.
 
-Connect the inject nodes to the MQTT output node.
-Configure the MQTT topic in the output node to match the self.TOPIC_CONTROL in your script (bipfinnland/monitoring11/control).
-Deploy and Test:
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Deploy the flow in Node-RED.
 Use the inject nodes to send start and stop commands to your MQTT broker, and observe how the data logging responds.
 Conclusion
