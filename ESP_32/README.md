@@ -73,3 +73,6 @@ To manage data recording, students can implement the Control topic. They can use
 Upload New Code:
 
 After making any changes, students should compile and upload the code again to test the modifications on the board.
+
+
+Use Chat-GPT or Gemini to unterstand the Code and how to use it.
