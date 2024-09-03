@@ -7,7 +7,7 @@ Follow the installation instructions provided by the installer.
 Launch Visual Studio Code:
 
 After installation, open VSCode.
-Step 2: Install PlatformIO
+## Step 2: Install PlatformIO
 Install PlatformIO Extension:
 
 In VSCode, click on the Extensions icon on the left sidebar (it looks like a square).
@@ -15,7 +15,7 @@ In the search box, type "PlatformIO IDE" and click on "Install" to add the Platf
 Restart VSCode:
 
 After installing PlatformIO, you will be prompted to restart VSCode. Click "Restart Now".
-Step 3: Setting Up a New PlatformIO Project
+## Step 3: Setting Up a New PlatformIO Project
 Create a New Project:
 
 After restarting, click on the PlatformIO Home Icon (a house with an arrow) on the left sidebar, or open the Command Palette (Ctrl + Shift + P), type PlatformIO: Home, and select it.
@@ -30,7 +30,7 @@ Click Finish to create the project.
 Open the Project Directory:
 
 After the project is created, the project directory will open in VSCode. You should see folders like src, include, and lib.
-Step 4: Integrate the Provided Code
+## Step 4: Integrate the Provided Code
 Add Header and Cpp Files:
 
 Copy the provided .h and .cpp files into the src folder of your project.
@@ -47,7 +47,7 @@ board = esp32-s3-devkitc-1
 framework = arduino
 monitor_speed = 115200
 This configuration ensures the correct board and settings are used. Adjust the board entry if a different board name is required.
-Step 5: Compile and Upload the Code to the ESP32-S3 Board
+## Step 5: Compile and Upload the Code to the ESP32-S3 Board
 Connect the ESP32-S3:
 
 Connect the ESP32-S3 board to your computer using a USB cable.
@@ -63,7 +63,7 @@ Open the Serial Monitor (Optional):
 
 To monitor the output from the ESP32-S3, you can open the Serial Monitor by clicking on the plug icon in the bottom bar or selecting PlatformIO: Monitor from the Command Palette.
 The Serial Monitor will display any debug or status messages from the board.
-Step 6: Customize the Code
+## Step 6: Customize the Code
 Make Adjustments:
 
 Your students can now customize the provided code to fit their specific needs. For example, they might want to read sensor values, control the display, or handle touch events.
