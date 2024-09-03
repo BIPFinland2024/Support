@@ -22,9 +22,9 @@ After restarting, click on the PlatformIO Home Icon (a house with an arrow) on t
 Click on New Project.
 Enter Project Details:
 
-Project Name: Enter a name for your project (e.g., "ESP32_S3_Project").
-Board: In the search field, type "Waveshare ESP32-S3" and select "Waveshare ESP32-S3 with 1.28-inch Round Touch LCD" from the list.
-Framework: Choose either "Arduino" or "ESP-IDF" depending on your project's requirements.
+Project Name: Enter a name for your project (e.g., "Hacker123").
+Board: In the search field, type esp32-s3-devkitc-1" and select it from the list.
+Framework: Choose "Arduino"
 Location: Choose where you want to save the project.
 Click Finish to create the project.
 Open the Project Directory:
@@ -39,13 +39,71 @@ Check the platformio.ini:
 
 Open the platformio.ini file in the root directory of the project.
 Make sure it looks something like this:
-ini
-Code kopieren
-[env:esp32-s3]
+
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[env]
 platform = espressif32
 board = esp32-s3-devkitc-1
 framework = arduino
+build_src_filter = +<*> -<.git/> -<programs/*> +<programs/${PIOENV}.cpp>
 monitor_speed = 115200
+lib_deps = 
+	bodmer/TFT_eSPI@^2.5.43
+	fbiego/CST816S@^1.1.1
+	knolleary/PubSubClient@^2.8
+	adafruit/Adafruit ADS1X15@^2.5.0
+	johannesschramm/ArduinoStopwatch@^1.0.2
+	SPI
+	bblanchon/ArduinoJson@^7.0.3
+
+[env:iot-coffeemaker-main]
+build_flags = 
+	-DLOG_LOCAL_LEVEL=ESP_LOG_VERBOSE
+	-DCORE_DEBUG_LEVEL=4
+	-std=c++2a
+
+[env:display-tests-main]
+build_flags = 
+	-DLOG_LOCAL_LEVEL=ESP_LOG_VERBOSE
+	-DCORE_DEBUG_LEVEL=4
+	-std=c++2a
+	-DUSER_SETUP_LOADED=1
+	-DGC9A01_DRIVER=1
+	-DTFT_WIDTH=240
+	-DTFT_HEIGHT=240
+	-DTFT_MISO=12
+	-DTFT_MOSI=11
+	-DTFT_SCLK=10
+	-DTFT_CS=9
+	-DTFT_DC=8
+	-DTFT_RST=14
+	-DTFT_BL=2
+	-DTFT_BACKLIGHT_ON=1
+	-DLOAD_GLCD=1
+	-DLOAD_FONT2=1
+	-DLOAD_FONT4=1
+	-DLOAD_FONT6=1
+	-DLOAD_FONT7=1
+	-DLOAD_FONT8=1
+	-DLOAD_GFXFF=1
+	-DSMOOTH_FONT=1
+	-DSPI_FREQUENCY=80000000
+
+[env:inputs-test-main]
+build_flags = 
+	-DLOG_LOCAL_LEVEL=ESP_LOG_VERBOSE
+	-DCORE_DEBUG_LEVEL=4
+	-std=c++2a
+
 This configuration ensures the correct board and settings are used. Adjust the board entry if a different board name is required.
 ## Step 5: Compile and Upload the Code to the ESP32-S3 Board
 Connect the ESP32-S3:
